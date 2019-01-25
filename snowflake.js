@@ -17,8 +17,8 @@ class Snowflake {
         this.acc = createVector();
         this.r = getRandomSize();
         this.angle = random(TWO_PI);
-        this.dir = (random(1) > .5)? 1: -1;
-        this.Xoffset =0;
+        this.dir = (random(1) > .5) ? 1 : -1;
+        this.Xoffset = 0;
 
     }
     //apply force, force is radius multiplied
@@ -38,8 +38,6 @@ class Snowflake {
 
     }
 
-
-
     update() {
         this.Xoffset = sin(this.angle) * this.r;
         this.vel.add(this.acc);
@@ -52,14 +50,14 @@ class Snowflake {
         this.acc.mult(0);
 
         if (this.pos.y > height + this.r) {
-            this.randomize();
+            this.randomize(); // call randomize when snowflakres have fallen off screen
         }
-        this.angle += this.dir * this.vel.mag()/200;
+        this.angle += this.dir * this.vel.mag() / 200;
     }
 
     render() {
         push();
-        translate(this.pos.x + this.Xoffset,  this.pos.y);
+        translate(this.pos.x + this.Xoffset, this.pos.y);
         rotate(this.angle);
         imageMode(CENTER);
         image(this.img, 0, 0, this.r, this.r);
