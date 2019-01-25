@@ -39,6 +39,7 @@ class Snowflake {
     }
 
     update() {
+        // offset moves sprite of at an angle
         this.Xoffset = sin(this.angle) * this.r;
         this.vel.add(this.acc);
         this.vel.limit(this.r * 0.2);
@@ -54,14 +55,16 @@ class Snowflake {
         }
         this.angle += this.dir * this.vel.mag() / 200;
     }
-
+/*
+The translate() function allows objects to be moved to any location within the window.
+The first parameter sets the x-axis offset and the second parameter sets the y-axis offset. P5.js */
     render() {
-        push();
+        push(); // Start a new drawing state
         translate(this.pos.x + this.Xoffset, this.pos.y);
         rotate(this.angle);
         imageMode(CENTER);
         image(this.img, 0, 0, this.r, this.r);
-        pop();
+        pop(); // Restore original state
     }
 
 }
