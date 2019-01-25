@@ -1,23 +1,43 @@
 let snow = [];
 let gravity = 0.01;
+var spritesheet;
+let textures = [];
 
-function setup() {
-    createCanvas(windowWidth, windowHeight);
-    gravity = createVector(0, 0.01);
-    for (let i =0; i <325; i++){
-        let x = random(width);
-        let y = random(height);
-        snow.push(new Snowflake(x,y));
-    }
-
+function preload() {
+  spritesheet = loadImage('flakes32.png');
 }
 
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  gravity = createVector(0, 0.3);
+  for (let x = 0; x < spritesheet.width; x += 32) {
+    for (let y = 0; y < spritesheet.height; y += 32) {
+      let img = spritesheet.get(x, y, 32, 32);
+      image(img, x, y);
+      textures.push(img);
+    }
+  }
+
+
+  for (let i = 0; i < 400; i++) {
+    let x = random(width);
+    let y = random(height);
+    let design = random(textures);
+    snow.push(new Snowflake(x, y, design));
+  }
+}
+
+
+
+
 function draw() {
-    console.log(snow.length);
+
+
     background(0);
+
     for (flake of snow) {
         flake.applyForce(gravity);
         flake.update();
-        flake.render();
+   flake.render();
     }
 }
