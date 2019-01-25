@@ -1,3 +1,5 @@
+/* from coding train and modified, added comments  */
+
 let snow = [];
 let gravity = 0.01;
 var spritesheet;
