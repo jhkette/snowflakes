@@ -62,8 +62,6 @@ class Snowflake {
         imageMode(CENTER);
         image(this.img, 0, 0, this.r, this.r);
         pop();
-
-
     }
 
 }

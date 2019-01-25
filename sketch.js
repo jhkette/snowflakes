@@ -20,7 +20,7 @@ function setup() {
         }
     }
     // create snow random width, height and textures, push new instance of snowflake into array
-    for (let i = 0; i < 400; i++) {
+    for (let i = 0; i < 300; i++) {
         let x = random(width);
         let y = random(height);
         let design = random(textures);
