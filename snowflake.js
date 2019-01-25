@@ -15,7 +15,6 @@ class Snowflake {
         this.acc = createVector();
         this.r = getRandomSize();
 
-
     }
 
     applyForce(force) {
@@ -56,8 +55,5 @@ class Snowflake {
         strokeWeight(this.r);
         point(this.pos.x, this.pos.y);
     }
-
-
-
 
 }
